@@ -2,10 +2,8 @@
 # python 3.6+
 
 import re
-import urllib 
 import urllib.request
 import chardet
-import os
 
 def getHtml(url):
     page = urllib.request.urlopen(url)
