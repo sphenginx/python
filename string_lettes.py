@@ -1,7 +1,9 @@
 
 # 基于random、string 生成随机数
 
-import random, string
+import random
+import string
+
 
 def rand_str(num, length=7):
     f = open('Activation_code.txt', 'w')

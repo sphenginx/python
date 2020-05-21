@@ -5,12 +5,14 @@ import re
 import urllib.request
 import chardet
 
+
 def getHtml(url):
     page = urllib.request.urlopen(url)
     html = page.read()
     encode_type = chardet.detect(html)  
     html = html.decode(encode_type['encoding'])
     return html
+
 
 def saveImages(imglist):
     success_num = 0
@@ -30,6 +32,7 @@ def saveImages(imglist):
 
     print("success_num：" + str(success_num) + ', fail_num：' + str(fail_num))
 
+
 def getAllImg(html):
     #利用正则表达式把源代码中的图片地址过滤出来
     # reg = r'src="(https://.+?\.jpg)"'
@@ -38,6 +41,7 @@ def getAllImg(html):
     imgre = re.compile(reg, re.S)
     imglist = imgre.findall(html) #表示在整个网页中过滤出所有图片的地址，放在imglist中
     return imglist
+
 
 if __name__ == '__main__':
     html = getHtml("https://www.zhihu.com/question/309298287/answer/583183127")
